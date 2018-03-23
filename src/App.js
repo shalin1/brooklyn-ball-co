@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import logo from "./blue-red-ball.jpg";
 import BallImage from "./ball_image";
-import { createCookie, getCookie, guid } from "./cookie";
+import { createCookie, getCookie } from "./cookie";
+import { guid, randomColor } from "./util";
 import "./App.css";
 
 class App extends Component {
-  randomColor() {
-    const colors = ["red", "blue"];
-    return colors[Math.floor(Math.random() * colors.length)];
-  }
-
   render() {
     getCookie("guid")
       ? console.log(getCookie("guid"))
       : console.log("new user!");
-    const ballColor = this.randomColor();
+    const ballColor = randomColor();
     createCookie("color", ballColor, 30);
     createCookie("guid", guid(), 30);
     return (
