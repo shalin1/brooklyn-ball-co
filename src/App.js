@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import fire from "./fire";
 import logo from "./images/blue-red-ball.jpg";
 import BallImage from "./ball_image";
 import { setCookie, getCookie } from "./cookie";
