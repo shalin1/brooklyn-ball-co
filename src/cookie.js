@@ -1,4 +1,4 @@
-export const setCookie = (name, value, days) => {
+export const set = (name, value, days) => {
   let expires;
   if (days) {
     let date = new Date();
@@ -10,8 +10,7 @@ export const setCookie = (name, value, days) => {
   document.cookie = name + "=" + value + expires + "; path=/";
 };
 
-export const getCookie = name => {
-  console.log("getcookie called");
+export const get = name => {
   if (document.cookie.length > 0) {
     let c_start = document.cookie.indexOf(name + "=");
     if (c_start !== -1) {

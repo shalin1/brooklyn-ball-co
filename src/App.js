@@ -1,12 +1,11 @@
-import React, { Component } from "react";
-import fire from "./fire";
+import React from "react";
 import logo from "./images/blue-red-ball.jpg";
 import BallImage from "./ball_image";
-import { setCookie, getCookie } from "./cookie";
+import * as cookie from "./cookie";
 import { guid, randomColor } from "./util";
 import "./App.css";
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
 
@@ -16,20 +15,18 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    let user = getCookie("guid");
-    let color = getCookie("color");
+  componentWillMount() {
+    let user = cookie.get("guid");
+    let color = cookie.get("color");
 
     if (user && color) {
-      console.log(`user id: ${user}, color: ${color}`);
       this.setState({ ballColor: color, currentUser: user });
     } else {
-      console.log("new user!");
       user = guid();
       color = randomColor();
       this.setState({ ballColor: color, currentUser: user });
-      setCookie("color", color, 30);
-      setCookie("guid", user, 30);
+      cookie.set("color", color, 30);
+      cookie.set("guid", user, 30);
     }
   }
 
@@ -41,7 +38,10 @@ class App extends Component {
           <h1 className="App-title">Welcome to Brooklyn Ball Co!</h1>
         </header>
 
-        <BallImage ballColor={this.state.ballColor} />
+        <BallImage
+          ballColor={this.state.ballColor}
+          user={this.state.currentUser}
+        />
 
         <p className="App-intro" />
       </div>

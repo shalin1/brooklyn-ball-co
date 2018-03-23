@@ -1,13 +1,26 @@
 import React from "react";
+import firebase from "./firebase";
 import blue from "./images/blue-ball.gif";
 import red from "./images/red-ball.gif";
 
-export default function BallImage(props) {
-  const ballSrc = props.ballColor === "blue" ? blue : red;
+class BallImage extends React.Component {
+  componentDidMount() {
+    const ballRef = firebase.database().ref("ballImageServes");
+    const ballView = {
+      color: this.props.ballColor,
+      user: this.props.user
+    };
+    ballRef.push(JSON.parse(JSON.stringify(ballView)));
+  }
 
-  return (
-    <section>
-      <img src={ballSrc} alt="Ball Special Offer-- Just for YOU!" />
-    </section>
-  );
+  render() {
+    const ballSrc = this.props.ballColor === "blue" ? blue : red;
+    return (
+      <section>
+        <img src={ballSrc} alt="Ball Special Offer-- Just for YOU!" />
+      </section>
+    );
+  }
 }
+
+export default BallImage;
