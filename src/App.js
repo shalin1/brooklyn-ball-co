@@ -6,19 +6,33 @@ import { guid, randomColor } from "./util";
 import "./App.css";
 
 class App extends Component {
-  render() {
-    let ballColor;
+  constructor() {
+    super();
 
-    if (getCookie("guid") && getCookie("color")) {
-      console.log(`user id: ${getCookie("guid")}`);
-      ballColor = getCookie("color");
+    this.state = {
+      ballColor: "",
+      currentUser: ""
+    };
+  }
+
+  componentDidMount() {
+    let user = getCookie("guid");
+    let color = getCookie("color");
+
+    if (user && color) {
+      console.log(`user id: ${user}, color: ${color}`);
+      this.setState({ ballColor: color, currentUser: user });
     } else {
       console.log("new user!");
-      ballColor = randomColor();
-      setCookie("guid", guid(), 30);
-      setCookie("color", ballColor, 30);
+      user = guid();
+      color = randomColor();
+      this.setState({ ballColor: color, currentUser: user });
+      setCookie("color", color, 30);
+      setCookie("guid", user, 30);
     }
+  }
 
+  render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -26,7 +40,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to Brooklyn Ball Co!</h1>
         </header>
 
-        <BallImage ballColor={ballColor} />
+        <BallImage ballColor={this.state.ballColor} />
 
         <p className="App-intro" />
       </div>

@@ -11,6 +11,7 @@ export const setCookie = (name, value, days) => {
 };
 
 export const getCookie = name => {
+  console.log("getcookie called");
   if (document.cookie.length > 0) {
     let c_start = document.cookie.indexOf(name + "=");
     if (c_start !== -1) {
