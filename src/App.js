@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import logo from "./blue-red-ball.jpg";
 import BallImage from "./ball_image";
-import { createCookie, getCookie } from "./cookie";
+import { setCookie, getCookie } from "./cookie";
 import { guid, randomColor } from "./util";
 import "./App.css";
 
 class App extends Component {
   render() {
-    getCookie("guid")
-      ? console.log(getCookie("guid"))
-      : console.log("new user!");
-    const ballColor = randomColor();
-    createCookie("color", ballColor, 30);
-    createCookie("guid", guid(), 30);
+    let ballColor;
+
+    if (getCookie("guid") && getCookie("color")) {
+      console.log(`user id: ${getCookie("guid")}`);
+      ballColor = getCookie("color");
+    } else {
+      console.log("new user!");
+      ballColor = randomColor();
+      setCookie("guid", guid(), 30);
+      setCookie("color", ballColor, 30);
+    }
+
     return (
       <div className="App">
         <header className="App-header">
