@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./blue-red-ball.jpg";
+import logo from "./images/blue-red-ball.jpg";
 import BallImage from "./ball_image";
 import { setCookie, getCookie } from "./cookie";
 import { guid, randomColor } from "./util";
