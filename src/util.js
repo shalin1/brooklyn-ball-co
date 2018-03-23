@@ -7,6 +7,6 @@ export const guid = () => {
 };
 
 export const randomColor = () => {
-  const colors = ["red", "blue"];
+  const colors = ["Red", "Blue"];
   return colors[Math.floor(Math.random() * colors.length)];
 };
