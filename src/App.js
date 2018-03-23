@@ -11,7 +11,7 @@ class App extends React.Component {
 
     this.state = {
       ballColor: "",
-      currentUser: ""
+      user: ""
     };
   }
 
@@ -20,11 +20,11 @@ class App extends React.Component {
     let color = cookie.get("color");
 
     if (user && color) {
-      this.setState({ ballColor: color, currentUser: user });
+      this.setState({ ballColor: color, user: user });
     } else {
       user = guid();
       color = randomColor();
-      this.setState({ ballColor: color, currentUser: user });
+      this.setState({ ballColor: color, user: user });
       cookie.set("color", color, 30);
       cookie.set("guid", user, 30);
     }
@@ -38,10 +38,7 @@ class App extends React.Component {
           <h1 className="App-title">Welcome to Brooklyn Ball Co!</h1>
         </header>
 
-        <BallImage
-          ballColor={this.state.ballColor}
-          user={this.state.currentUser}
-        />
+        <BallImage ballColor={this.state.ballColor} user={this.state.user} />
 
         <p className="App-intro" />
       </div>
