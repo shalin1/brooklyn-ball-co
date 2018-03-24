@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./images/blue-red-ball.jpg";
 
-const Header = () => {
+const Header = props => {
   return (
     <header>
       <img src={logo} className="App-logo" alt="Brooklyn Ball Co Logo" />

@@ -39,8 +39,14 @@ class Admin extends React.Component {
 
   render() {
     const totals = this.state.log.filter(el => el.key === "totals");
-    const totalRed = totals[0] ? totals[0].Red : "loading";
-    const totalBlue = totals[0] ? totals[0].Blue : "loading";
+    const totalRedImpressions = totals[0] ? totals[0].Red : "loading";
+    const totalBlueImpressions = totals[0] ? totals[0].Blue : "loading";
+
+    const conversions = this.state.log.filter(el => el.key === "conversions");
+    const totalRedConversions = conversions[0] ? conversions[0].Red : "loading";
+    const totalBlueConversions = conversions[0]
+      ? conversions[0].Blue
+      : "loading";
 
     return (
       <div>
@@ -49,8 +55,36 @@ class Admin extends React.Component {
           <h1>Welcome back, Admin!</h1>
           <h2>Blue/Red A-B Campaign Report</h2>
           <ul className="reporting">
-            <li>Total red ball ad impressions: {totalRed}</li>
-            <li>Total blue ball ad impressions: {totalBlue}</li>
+            <li className="log">
+              Total red ball ad impressions: {totalRedImpressions}
+            </li>
+            <li className="log">
+              Total red ball ad conversions: {totalRedConversions}
+            </li>
+            <li className="log">
+              Red ball advert clickthrough rate: %{Math.round(
+                totalRedConversions / totalRedImpressions * 10000
+              ) / 100}
+            </li>
+
+            <li className="log">
+              Total blue ball ad impressions: {totalBlueImpressions}
+            </li>
+            <li className="log">
+              Total blue ball ad conversions: {totalBlueConversions}
+            </li>
+            <li className="log">
+              Blue ball advert clickthrough rate: %{Math.round(
+                totalBlueConversions / totalBlueImpressions * 10000
+              ) / 100}
+            </li>
+
+            <li className="log">
+              Total blue ball ad conversions: {totalBlueConversions}
+            </li>
+            <li className="log">
+              Total blue ball ad conversions: {totalBlueConversions}
+            </li>
           </ul>
 
           <h2>User Report</h2>
@@ -64,7 +98,7 @@ class Admin extends React.Component {
                 const redCount = el.Red ? el.Red : 0;
 
                 return (
-                  <li className="visit-log" key={el["key"]}>
+                  <li className="log" key={el["key"]}>
                     User #{uid}
                     <br />
                     viewed blue ball image {blueCount} times
