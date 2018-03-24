@@ -15,7 +15,7 @@ class Admin extends React.Component {
       .database()
       .ref("impressions")
       .orderByChild("color")
-      .equalTo("orange")
+      .equalTo("Blue")
       .on("value", snapshot => {
         this.parse(snapshot.val());
       });

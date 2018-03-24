@@ -31,7 +31,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log("rendering");
     return (
       <div className="App">
         <header className="App-header">
