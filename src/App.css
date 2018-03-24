@@ -36,6 +36,7 @@ header {
   align-items: center;
   justify-content: space-around;
   padding: 20px;
+  padding-bottom: 80px;
   margin: 20px;
   background-color: #ffffe0;
 }
@@ -57,7 +58,7 @@ footer {
   width: 100%;
   background-color: #000;
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   align-items: center;
   justify-content: flex-end;
@@ -72,4 +73,18 @@ footer {
 .admin-console {
   background-color: #ffffe0;
   padding: 20px;
+  padding-bottom: 80px;
+  min-height: 100%;
+  margin: 40px;
+}
+
+.reporting {
+  font-size: 1.5em;
+  font-family: monospace;
+  list-style-type: none;
+}
+
+.visit-log {
+  padding: 10px 0;
+  margin: 10px 0;
 }

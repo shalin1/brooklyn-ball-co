@@ -8,7 +8,7 @@ class Admin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      log: []
+      log: ["loading"]
     };
   }
 
@@ -38,23 +38,43 @@ class Admin extends React.Component {
   }
 
   render() {
+    const totals = this.state.log.filter(el => el.key === "totals");
+    const totalRed = totals[0] ? totals[0].Red : "loading";
+    const totalBlue = totals[0] ? totals[0].Blue : "loading";
+
     return (
       <div>
         <Header />
         <div className="admin-console">
           <h1>Welcome back, Admin!</h1>
+          <h2>Blue/Red A-B Campaign Report</h2>
           <ul className="reporting">
-            {this.state.log.map(el => {
-              let uid = el.key;
-              let blueCount = el.Blue ? el.Blue : 0;
-              let redCount = el.Red ? el.Red : 0;
-              return (
-                <li key={el["key"]}>
-                  User #{uid} viewed blue ball image {blueCount} times, red ball
-                  image {redCount} times.
-                </li>
-              );
-            })}
+            <li>Total red ball ad impressions: {totalRed}</li>
+            <li>Total blue ball ad impressions: {totalBlue}</li>
+          </ul>
+
+          <h2>User Report</h2>
+          <ul className="reporting">
+            {this.state.log === ["loading"] ? (
+              <li>'loading report...'</li>
+            ) : (
+              this.state.log.map(el => {
+                const uid = el.key;
+                const blueCount = el.Blue ? el.Blue : 0;
+                const redCount = el.Red ? el.Red : 0;
+
+                return (
+                  <li className="visit-log" key={el["key"]}>
+                    User #{uid}
+                    <br />
+                    viewed blue ball image {blueCount} times
+                    <br />
+                    viewed red ball image {redCount} times
+                    <br />
+                  </li>
+                );
+              })
+            )}
           </ul>
         </div>
         <Footer />

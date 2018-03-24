@@ -12,6 +12,12 @@ class Ball extends React.Component {
         .transaction(currentValue => {
           return (currentValue || 0) + 1;
         });
+      firebase
+        .database()
+        .ref(`impressions/totals/${this.props.color}`)
+        .transaction(currentValue => {
+          return (currentValue || 0) + 1;
+        });
     }, 500);
   }
 

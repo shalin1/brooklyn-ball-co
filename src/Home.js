@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import * as cookie from "./cookie";
 import { guid, randomColor } from "./util";
-import { Link } from "react-router-dom";
 
 import "./App.css";
 
@@ -44,7 +43,7 @@ class Home extends React.Component {
             </p>
             <h1>Deluxe {this.state.color} Balls</h1>
             <p className="body-copy">for the low, low price of only</p>
-            <h1>{this.state.color == "Red" ? "$499.99" : "$99.99"}!!!</h1>
+            <h1>{this.state.color === "Red" ? "$499.99" : "$99.99"}!!!</h1>
           </aside>
           <Ball color={this.state.color} user={this.state.user} />
         </div>
