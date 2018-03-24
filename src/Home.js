@@ -3,7 +3,7 @@ import logo from "./images/blue-red-ball.jpg";
 import Ball from "./Ball";
 import * as cookie from "./cookie";
 import { guid, randomColor } from "./util";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./App.css";
 
@@ -11,22 +11,23 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      user: cookie.get("guid"),
+      user: cookie.get("user"),
       color: cookie.get("color")
     };
   }
 
   componentWillMount() {
-    let user = this.state.user;
-    let color = this.state.color;
-
-    if (!user || !color) {
-      user = guid();
-      color = randomColor();
-      this.setState({ color: color, user: user });
-      cookie.set("color", color, 30);
-      cookie.set("user", user, 30);
+    if (!this.state.user || !this.state.color) {
+      this.initializeNewUser();
     }
+  }
+
+  initializeNewUser() {
+    const user = guid();
+    const color = randomColor();
+    this.setState({ color: color, user: user });
+    cookie.set("color", color);
+    cookie.set("user", user);
   }
 
   render() {

@@ -8,9 +8,11 @@ class Ball extends React.Component {
     const _this = this;
     setTimeout(function() {
       const ref = firebase.database().ref("impressions");
+      console.log(firebase.ServerValue);
       const impression = {
         user: _this.props.user,
         color: _this.props.color
+        // impressionTime: firebase.ServerValue.TIMESTAMP
       };
       ref.push(impression);
     }, 500);
