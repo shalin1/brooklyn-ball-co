@@ -33,14 +33,28 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Link className="App-title" to="/admin">
+        <header>
+          <img src={logo} className="App-logo" alt="Brooklyn Ball Co Logo" />
+          <h2 className="App-title">Welcome to Brooklyn Ball Co!</h2>
+        </header>
+        <div className="body">
+          <aside>
+            <p className="body-copy">
+              Now! For a limited time only!
+              <br />
+              Brooklyn Ball Co™ has got a deal for you!
+            </p>
+            <h1>Deluxe {this.state.color} Balls</h1>
+            <p className="body-copy">for the low, low price of only</p>
+            <h1>{this.state.color == "Red" ? "$499.99" : "$99.99"}!!!</h1>
+          </aside>
+          <Ball color={this.state.color} user={this.state.user} />
+        </div>
+        <footer>
+          <Link className="Admin" to="/admin">
             Admin
           </Link>
-          <img src={logo} className="App-logo" alt="Brooklyn Ball Co Logo" />
-          <h1 className="App-title">Welcome to Brooklyn Ball Co!</h1>
-        </header>
-        <Ball color={this.state.color} user={this.state.user} />
+        </footer>
       </div>
     );
   }

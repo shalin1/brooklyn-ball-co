@@ -36,23 +36,24 @@ class Admin extends React.Component {
   }
 
   render() {
-    console.log(this.state.log);
-    debugger;
-
     return (
-      <ul className="reporting">
-        {this.state.log.map(el => {
-          let uid = el.key;
-          let blueCount = el.Blue ? el.Blue : 0;
-          let redCount = el.Red ? el.Red : 0;
-          return (
-            <li key={el["key"]}>
-              User #{uid} viewed blue ball image {blueCount} times, red ball
-              image {redCount} times.
-            </li>
-          );
-        })}
-      </ul>
+      <div>
+        <h1>Red-Blue Ball Campaign Reporting</h1>
+
+        <ul className="reporting">
+          {this.state.log.map(el => {
+            let uid = el.key;
+            let blueCount = el.Blue ? el.Blue : 0;
+            let redCount = el.Red ? el.Red : 0;
+            return (
+              <li key={el["key"]}>
+                User #{uid} viewed blue ball image {blueCount} times, red ball
+                image {redCount} times.
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }
