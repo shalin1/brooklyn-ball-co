@@ -5,12 +5,14 @@ import red from "./images/red-ball.gif";
 
 class Ball extends React.Component {
   logImpression() {
-    firebase
-      .database()
-      .ref(`impressions/${this.props.user}/${this.props.color}`)
-      .transaction(currentValue => {
-        return (currentValue || 0) + 1;
-      });
+    setTimeout(() => {
+      firebase
+        .database()
+        .ref(`impressions/${this.props.user}/${this.props.color}`)
+        .transaction(currentValue => {
+          return (currentValue || 0) + 1;
+        });
+    }, 500);
   }
 
   render() {
