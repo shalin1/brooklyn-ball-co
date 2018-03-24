@@ -7,7 +7,7 @@ class BallImage extends React.Component {
   logImpression() {
     const _this = this;
     setTimeout(function() {
-      const impressionRef = firebase.database().ref("ballImpressions");
+      const impressionRef = firebase.database().ref("campaignImpressions");
       const ballImpression = {
         color: _this.props.ballColor,
         user: _this.props.user
