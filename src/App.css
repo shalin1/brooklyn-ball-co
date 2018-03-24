@@ -35,7 +35,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: calc(100vh - 400px);
   padding: 20px;
   margin: 20px;
   background-color: #ffffe0;
@@ -58,12 +57,19 @@ footer {
   width: 100%;
   background-color: #000;
   display: flex;
+  position: absolute;
+  bottom: 0;
   align-items: center;
   justify-content: flex-end;
 }
 
-.Admin {
+.footer-link {
   color: white;
   padding: 0 20px;
   font-size: 1.6em;
+}
+
+.admin-console {
+  background-color: #ffffe0;
+  padding: 20px;
 }

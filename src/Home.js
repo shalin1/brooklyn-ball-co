@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "./images/blue-red-ball.jpg";
 import Ball from "./Ball";
+import Header from "./Header";
+import Footer from "./Footer";
 import * as cookie from "./cookie";
 import { guid, randomColor } from "./util";
 import { Link } from "react-router-dom";
@@ -33,10 +34,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <img src={logo} className="App-logo" alt="Brooklyn Ball Co Logo" />
-          <h2 className="App-title">Welcome to Brooklyn Ball Co!</h2>
-        </header>
+        <Header />
         <div className="body">
           <aside>
             <p className="body-copy">
@@ -50,11 +48,7 @@ class Home extends React.Component {
           </aside>
           <Ball color={this.state.color} user={this.state.user} />
         </div>
-        <footer>
-          <Link className="Admin" to="/admin">
-            Admin
-          </Link>
-        </footer>
+        <Footer />
       </div>
     );
   }
