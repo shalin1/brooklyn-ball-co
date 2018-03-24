@@ -3,7 +3,7 @@ import firebase from "./firebase";
 import blue from "./images/blue-ball.gif";
 import red from "./images/red-ball.gif";
 
-class BallImage extends React.Component {
+class Ball extends React.Component {
   logImpression() {
     const _this = this;
     setTimeout(function() {
@@ -30,4 +30,4 @@ class BallImage extends React.Component {
   }
 }
 
-export default BallImage;
+export default Ball;

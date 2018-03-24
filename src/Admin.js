@@ -8,10 +8,15 @@ class Admin extends React.Component {
     this.state = {
       log: []
     };
-    let db = firebase.database().ref("campaignImpressions");
-    db.on("value", snapshot => {
-      this.parse(snapshot.val());
-    });
+  }
+
+  componentWillMount() {
+    firebase
+      .database()
+      .ref("campaignImpressions")
+      .on("value", snapshot => {
+        this.parse(snapshot.val());
+      });
   }
 
   parse(values) {
@@ -28,15 +33,21 @@ class Admin extends React.Component {
     this.setState({
       log: logArr
     });
-    console.log(logArr);
+    console.log(values);
   }
 
   render() {
     console.log("campaign report rendering");
     return (
-      <div className="reporting">
-        <ul />
-      </div>
+      <ul className="reporting">
+        {this.state.log.map(el => {
+          return (
+            <li key={el["key"]}>
+              {el["color"]}, {el["user"]}
+            </li>
+          );
+        })}
+      </ul>
     );
   }
 }
