@@ -13,7 +13,9 @@ class Admin extends React.Component {
   componentWillMount() {
     firebase
       .database()
-      .ref("campaignImpressions")
+      .ref("impressions")
+      .orderByChild("color")
+      .equalTo("orange")
       .on("value", snapshot => {
         this.parse(snapshot.val());
       });
