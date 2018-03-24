@@ -14,8 +14,6 @@ class Admin extends React.Component {
     firebase
       .database()
       .ref("impressions")
-      .orderByChild("color")
-      .equalTo("Blue")
       .on("value", snapshot => {
         this.parse(snapshot.val());
       });
@@ -38,13 +36,19 @@ class Admin extends React.Component {
   }
 
   render() {
-    console.log("campaign report rendering");
+    console.log(this.state.log);
+    debugger;
+
     return (
       <ul className="reporting">
         {this.state.log.map(el => {
+          let uid = el.key;
+          let blueCount = el.Blue ? el.Blue : 0;
+          let redCount = el.Red ? el.Red : 0;
           return (
             <li key={el["key"]}>
-              {el["color"]}, {el["user"]}
+              User #{uid} viewed blue ball image {blueCount} times, red ball
+              image {redCount} times.
             </li>
           );
         })}
