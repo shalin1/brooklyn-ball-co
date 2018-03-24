@@ -33,7 +33,6 @@ class Admin extends React.Component {
     this.setState({
       log: logArr
     });
-    console.log(values);
   }
 
   render() {

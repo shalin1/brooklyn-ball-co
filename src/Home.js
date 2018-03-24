@@ -10,23 +10,22 @@ import "./App.css";
 class Home extends React.Component {
   constructor() {
     super();
-
     this.state = {
-      ballColor: cookie.get("guid"),
-      user: cookie.get("color")
+      user: cookie.get("guid"),
+      color: cookie.get("color")
     };
   }
 
   componentWillMount() {
     let user = this.state.user;
-    let color = this.state.ballColor;
+    let color = this.state.color;
 
     if (!user || !color) {
       user = guid();
       color = randomColor();
-      this.setState({ ballColor: color, user: user });
+      this.setState({ color: color, user: user });
       cookie.set("color", color, 30);
-      cookie.set("guid", user, 30);
+      cookie.set("user", user, 30);
     }
   }
 
@@ -41,7 +40,7 @@ class Home extends React.Component {
           <img src={logo} className="App-logo" alt="Brooklyn Ball Co Logo" />
           <h1 className="App-title">Welcome to Brooklyn Ball Co!</h1>
         </header>
-        <Ball ballColor={this.state.ballColor} user={this.state.user} />
+        <Ball color={this.state.color} user={this.state.user} />
       </div>
     );
   }

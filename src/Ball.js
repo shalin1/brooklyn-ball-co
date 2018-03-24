@@ -7,22 +7,23 @@ class Ball extends React.Component {
   logImpression() {
     const _this = this;
     setTimeout(function() {
-      const impressionRef = firebase.database().ref("campaignImpressions");
-      const ballImpression = {
-        color: _this.props.ballColor,
-        user: _this.props.user
+      const ref = firebase.database().ref("impressions");
+      const impression = {
+        user: _this.props.user,
+        color: _this.props.color
       };
-      impressionRef.push(ballImpression);
+      ref.push(impression);
     }, 500);
   }
 
   render() {
-    const ballSrc = this.props.ballColor === "Blue" ? blue : red;
+    const ballSrc = this.props.color === "Blue" ? blue : red;
+
     return (
       <section>
         <img
           src={ballSrc}
-          alt={`${this.props.ballColor} Ball Special-- Just for YOU!`}
+          alt={`${this.props.color} Ball Special-- Just for YOU!`}
           onLoad={this.logImpression.bind(this)}
         />
       </section>
