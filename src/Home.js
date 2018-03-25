@@ -14,7 +14,7 @@ class Home extends React.Component {
     this.state = {
       user: cookie.get("user"),
       color: cookie.get("color"),
-      cartItems: 0
+      cartItems: parseInt(cookie.get("cartCount")) || 0
     };
   }
 
@@ -26,6 +26,7 @@ class Home extends React.Component {
 
   handleClick() {
     this.setState({ cartItems: this.state.cartItems + 1 });
+    cookie.set("cartCount", this.state.cartItems + 1);
     firebase
       .database()
       .ref(`impressions/conversions/${this.state.color}`)
@@ -45,7 +46,8 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header cartItems={this.state.cartItems} />
+        <Header />
+        <div className="cart">{this.state.cartItems} balls in cart</div>
         <div className="body">
           <aside>
             <p className="body-copy">

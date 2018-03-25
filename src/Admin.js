@@ -56,58 +56,58 @@ class Admin extends React.Component {
           <h2>Blue/Red A-B Campaign Report</h2>
           <ul className="reporting">
             <li className="log">
-              Total red ball ad impressions: {totalRedImpressions}
+              Total red ball ad impressions: {totalRedImpressions || 0}
             </li>
             <li className="log">
-              Total red ball ad conversions: {totalRedConversions}
+              Total red ball ad conversions: {totalRedConversions || 0}
             </li>
             <li className="log">
               Red ball advert clickthrough rate: %{Math.round(
                 totalRedConversions / totalRedImpressions * 10000
-              ) / 100}
+              ) / 100 || 0}
             </li>
 
             <li className="log">
-              Total blue ball ad impressions: {totalBlueImpressions}
+              Total blue ball ad impressions: {totalBlueImpressions || 0}
             </li>
             <li className="log">
-              Total blue ball ad conversions: {totalBlueConversions}
+              Total blue ball ad conversions: {totalBlueConversions || 0}
             </li>
             <li className="log">
               Blue ball advert clickthrough rate: %{Math.round(
                 totalBlueConversions / totalBlueImpressions * 10000
-              ) / 100}
-            </li>
-
-            <li className="log">
-              Total blue ball ad conversions: {totalBlueConversions}
-            </li>
-            <li className="log">
-              Total blue ball ad conversions: {totalBlueConversions}
+              ) / 100 || 0}
             </li>
           </ul>
 
           <h2>User Report</h2>
           <ul className="reporting">
-            {this.state.log === ["loading"] ? (
+            {this.state.log[0] === "loading" ? (
               <li>'loading report...'</li>
             ) : (
-              this.state.log.map(el => {
-                const uid = el.key;
-                const blueCount = el.Blue ? el.Blue : 0;
-                const redCount = el.Red ? el.Red : 0;
+              this.state.log
+                .filter(
+                  el =>
+                    el.key !== "conversions" &&
+                    el.key !== "clickthroughs" &&
+                    el.key !== "totals"
+                )
+                .map(el => {
+                  const uid = el.key;
+                  const blueCount = el.Blue ? el.Blue : 0;
+                  const redCount = el.Red ? el.Red : 0;
 
-                return (
-                  <li className="log" key={el["key"]}>
-                    User #{uid}
-                    <br />
-                    viewed blue ball image {blueCount} times
-                    <br />
-                    viewed red ball image {redCount} times
-                    <br />
-                  </li>
-                );
-              })
+                  return (
+                    <li className="log" key={el["key"]}>
+                      User #{uid}
+                      <br />
+                      viewed blue ball image {blueCount} times
+                      <br />
+                      viewed red ball image {redCount} times
+                      <br />
+                    </li>
+                  );
+                })
             )}
           </ul>
         </div>

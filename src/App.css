@@ -27,8 +27,18 @@ header {
   justify-content: space-around;
 }
 
+.cart {
+  color: white;
+  font-size: 1.7em;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
 .App-title {
   font-size: 2em;
+  color: white;
+  text-decoration: none;
 }
 
 .body {
@@ -79,14 +89,14 @@ footer {
 }
 
 .reporting {
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-family: monospace;
   list-style-type: none;
 }
 
-.visit-log {
-  padding: 0px 5px;
-  margin: 0px 5px;
+.log {
+  padding: 5px;
+  margin: 5px;
 }
 
 .CTA {
