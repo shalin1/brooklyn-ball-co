@@ -86,6 +86,7 @@ class Admin extends React.Component {
               <li>'loading report...'</li>
             ) : (
               this.state.log
+
                 .filter(
                   el =>
                     el.key !== "conversions" &&

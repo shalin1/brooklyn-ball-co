@@ -5,6 +5,7 @@ import red from "../images/red-ball.gif";
 
 class Ball extends React.Component {
   logImpression() {
+    // 500ms delay after image load for impression logging to assure viewability
     setTimeout(() => {
       firebase
         .database()

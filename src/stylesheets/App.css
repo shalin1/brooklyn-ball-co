@@ -35,6 +35,7 @@ header {
 
 .cart {
   color: white;
+  background-color: black;
   font-size: 1.7em;
   position: fixed;
   top: 20px;

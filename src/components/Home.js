@@ -26,6 +26,7 @@ class Home extends React.Component {
   handleClick() {
     this.setState({ cartItems: this.state.cartItems + 1 });
     cookie.set("cartCount", this.state.cartItems + 1);
+    // transaction increments value of GUID in Firebase
     firebase
       .database()
       .ref(`impressions/conversions/${this.state.color}`)
@@ -40,6 +41,7 @@ class Home extends React.Component {
     this.setState({ color: color, user: user });
     cookie.set("color", color);
     cookie.set("user", user);
+    cookie.set("cartCount", 0);
   }
 
   render() {
