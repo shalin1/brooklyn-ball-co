@@ -5,7 +5,6 @@ import * as util from "../helpers/util";
 import Header from "./Header";
 import Ball from "./Ball";
 import Footer from "./Footer";
-
 import "../stylesheets/App.css";
 
 class Home extends React.Component {
