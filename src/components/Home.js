@@ -13,7 +13,7 @@ class Home extends React.Component {
     this.state = {
       user: cookie.get("user"),
       color: cookie.get("color"),
-      cartItems: parseInt(cookie.get("cartCount")) || 0
+      cartItems: parseInt(cookie.get("cartCount"), 10) || 0
     };
   }
 
