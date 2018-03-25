@@ -1,5 +1,7 @@
 **BROOKLYN BALL CO**
 
+LIVE at https://brooklyn-ball-co.firebaseapp.com/
+
 A test application :)
 
 **Features**
