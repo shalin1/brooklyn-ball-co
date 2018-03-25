@@ -1,7 +1,9 @@
 **BROOKLYN BALL CO**
-A coding challenge for MightyHive by Shalin Scupham
+
+A test application :)
 
 **Features**
+
 -Random a-b testing of Ball Is Life™ red/blue ball sales campaign
 
 -Modification of copy and imagery based on React state, persisted between visits via cookie.
@@ -21,6 +23,7 @@ A coding challenge for MightyHive by Shalin Scupham
 -Logo for Brooklyn Ball Co™ is animated and subtly references Pokeball for enhanced appeal to millennials
 
 **Todos**
+
 -Add testing suite to facilitate feature development
 
 -Refactor firebase transaction calls in to helper library for DRYer codebase
@@ -39,6 +42,7 @@ A coding challenge for MightyHive by Shalin Scupham
 
 -Stripe integration, Facebook ad campaign to widen sales funnel and increase profitability
 
-THANK YOU
+**THANK YOU** 
+
 
 -Shalin Scupham / shalinscupham.com
