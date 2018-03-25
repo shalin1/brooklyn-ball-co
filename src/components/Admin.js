@@ -1,8 +1,8 @@
 import React from "react";
+import _ from "lodash";
+import firebase from "../helpers/firebase";
 import Header from "./Header";
 import Footer from "./Footer";
-import firebase from "./firebase";
-import _ from "lodash";
 
 class Admin extends React.Component {
   constructor(props) {

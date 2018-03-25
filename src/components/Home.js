@@ -1,12 +1,12 @@
 import React from "react";
-import Ball from "./Ball";
+import firebase from "../helpers/firebase";
+import * as cookie from "../helpers/cookie";
+import * as util from "../helpers/util";
 import Header from "./Header";
+import Ball from "./Ball";
 import Footer from "./Footer";
-import firebase from "./firebase";
-import * as cookie from "./cookie";
-import { guid, randomColor } from "./util";
 
-import "./App.css";
+import "../stylesheets/App.css";
 
 class Home extends React.Component {
   constructor() {
@@ -36,8 +36,8 @@ class Home extends React.Component {
   }
 
   initializeNewUser() {
-    const user = guid();
-    const color = randomColor();
+    const user = util.guid();
+    const color = util.randomColor();
     this.setState({ color: color, user: user });
     cookie.set("color", color);
     cookie.set("user", user);

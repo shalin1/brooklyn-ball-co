@@ -1,7 +1,7 @@
 import React from "react";
-import firebase from "./firebase";
-import blue from "./images/blue-ball.gif";
-import red from "./images/red-ball.gif";
+import firebase from "../helpers/firebase";
+import blue from "../images/blue-ball.gif";
+import red from "../images/red-ball.gif";
 
 class Ball extends React.Component {
   logImpression() {
