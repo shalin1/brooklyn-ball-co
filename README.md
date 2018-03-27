@@ -2,23 +2,23 @@
 
 LIVE at https://brooklyn-ball-co.firebaseapp.com/
 
-A test application :)
+A test of basic user tracking and reportingin vanilla JS, with Firebase and manually set cookies.
 
 **Features**
 
--Random a-b testing of Ball Is Life™ red/blue ball sales campaign
+-Random a-b testing of red vs. blue balls-- visitors will see only one version of the page, and will see the same thing every time.
 
 -Modification of copy and imagery based on React state, persisted between visits via cookie.
 
--Hand-crafted cookie setter/getter library in vanilla JS, with default persistence to end of 32 bit epoch time, tested for cross-browser compatibility
+-Hand-crafted cookie setter/getter library in vanilla JS, with default persistence to end of 32 bit epoch time, tested for cross-browser compatibility.
 
 -Pseudo-random GUID setter (as random at Math.random())
 
--User activity and statistics persisted in Firebase
+-User activity and statistics persisted in Firebase DB.
 
--Minimal cart implementation, clickthrough tracking
+-Minimal cart implementation, clickthrough rate tracking
 
--Report page broken out by user, with conversion rates and total view stats
+-Report page broken out by user and aggregate, with conversion rates and total view stats
 
 -Minimal yet functional styling for the modern era
 
@@ -26,19 +26,17 @@ A test application :)
 
 **Todos**
 
--Add testing suite to facilitate feature development
+-Add testing suite to facilitate future development
 
--Refactor firebase transaction calls in to helper library for DRYer codebase
+-Refactor firebase transaction logic in to helper library for a more DRY and readable codebase
 
--Refactor meta info in to new slice of firebase DB
+-Refactor DB state shape to update meta info in a different section than user tracking to facilitate cleaner lookups
 
--Add timestamp and IP info by user visit
+-Add timestamp and IP info by user visit, associate individual users with individual clickthroughs.
 
--Associate GUID's with IP addresses, FB/Google tracking pixels to circumvent paranoid users with "privacy concerns" who've disabled cookies
+-Associate GUID's with FB/Google tracking pixels to circumvent paranoid users with "privacy concerns" who've disabled cookies
 
--Tidy up CSS to help future developers-- refactor with Sass 7:1 pattern
-
--Responsive design breakpoints
+-Tidy up CSS, refactor design for mobile-first with @media queries.
 
 -Add information about ball color to cart state
 
